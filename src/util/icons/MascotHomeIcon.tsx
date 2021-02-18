@@ -1,10 +1,10 @@
 import React from "react";
 import {Icon} from "@chakra-ui/react";
 
-function MascotHomeIcon()
+function MascotHomeIcon(props: any)
 {
     return (
-        <Icon viewBox="0 0 512 512">
+        <Icon viewBox="0 0 512 512" {...props}>
             <path
                 d="M256 135.973L86.929 271.804v220.2h93.072v-118.95c0-41.906 34.092-75.999 75.999-75.999 41.905 0 75.999 34.092 75.999 75.999v118.95h93.072v-220.2L256 135.973z"/>
             <path

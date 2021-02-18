@@ -1,39 +1,45 @@
 import React from "react";
-import {Box, Button, Flex, Heading, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react";
+import {Box, Button, Flex, Heading, IconButton, Menu, MenuButton, MenuItem, MenuList, chakra} from "@chakra-ui/react";
 import MascotHomeIcon from "../util/icons/MascotHomeIcon";
-import {ChevronDownIcon} from "@chakra-ui/icons";
+import {HamburgerIcon} from "@chakra-ui/icons";
 
 function Header()
 {
     return (
-        <header>
-            <Flex>
+        <chakra.header display="flex" justifyContent="center" padding="2.5% 0">
+            <Flex justifyContent="space-between" alignItems="center" width="92%">
                 <Flex>
-                    <MascotHomeIcon/>
-                    <Heading>Mascotadopta</Heading>
+                    <MascotHomeIcon h={7} w={7} marginRight="12px"/>
+                    <Heading size="lg">Mascotadopta</Heading>
                 </Flex>
-                <Flex>
-                    <Box>
-                        Search
-                    </Box>
-                    <Button>Ir</Button>
-                </Flex>
-                <Flex>
-                    <Menu>
-                        <MenuButton as={Button} rightIcon={<ChevronDownIcon/>}>
-                            Actions
-                        </MenuButton>
-                        <MenuList>
-                            <MenuItem>Download</MenuItem>
-                            <MenuItem>Create a Copy</MenuItem>
-                            <MenuItem>Mark as Draft</MenuItem>
-                            <MenuItem>Delete</MenuItem>
-                            <MenuItem>Attend a Workshop</MenuItem>
-                        </MenuList>
-                    </Menu>
-                </Flex>
+
+                <Menu>
+                    <MenuButton
+                        as={IconButton}
+                        aria-label="Open menu"
+                        icon={<HamburgerIcon/>}
+                        variant="ghost"
+                    />
+                    <MenuList>
+                        <MenuItem>
+                            <Flex>
+                                <Box>
+                                    Search
+                                </Box>
+                                <Button>Ir</Button>
+                            </Flex>
+                        </MenuItem>
+                        <MenuItem>Download</MenuItem>
+                        <MenuItem>Create a Copy</MenuItem>
+                        <MenuItem>Mark as Draft</MenuItem>
+                        <MenuItem>Delete</MenuItem>
+                        <MenuItem>Attend a Workshop</MenuItem>
+                    </MenuList>
+                </Menu>
+
+
             </Flex>
-        </header>
+        </chakra.header>
     );
 }
 
