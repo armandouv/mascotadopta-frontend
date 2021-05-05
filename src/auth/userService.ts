@@ -2,11 +2,11 @@ import { UserManager } from 'oidc-client';
 
 const config = {
     authority: "http://localhost:8180/auth/realms/Mascotadopta/",
-    client_id: "mascotadopta-test",
-    redirect_uri: "http://localhost:3000/",
+    client_id: "mascotadopta-spa",
+    redirect_uri: "http://localhost:3000/signin-oidc",
     response_type: "code",
-    scope: "email roles",
-    post_logout_redirect_uri: "http://localhost:3000/",
+    scope: "email profile roles",
+    post_logout_redirect_uri: "http://localhost:3000/signout-oidc"
 };
 
 const userManager = new UserManager(config);
@@ -22,11 +22,11 @@ export async function loadUserFromStorage(store) {
     }
 }*/
 
-export function signinRedirect() {
+export async function signinRedirect() {
     return userManager.signinRedirect();
 }
 
-export function signinRedirectCallback() {
+export async function signinRedirectCallback() {
     return userManager.signinRedirectCallback();
 }
 
