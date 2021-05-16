@@ -5,7 +5,7 @@ const config = {
     client_id: "mascotadopta-spa",
     redirect_uri: "http://localhost:3000/signin-oidc",
     response_type: "code",
-    scope: "email profile roles",
+    scope: "email profile roles openid",
     post_logout_redirect_uri: "http://localhost:3000/signout-oidc"
 };
 

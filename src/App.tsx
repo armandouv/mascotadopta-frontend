@@ -5,6 +5,7 @@ import Main from "./main/Main";
 import SignOutOidc from "./auth/pages/SignOutOidc";
 import SignInOidc from "./auth/pages/SignInOidc";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
+import Footer from "./footer/Footer";
 
 export const App = () => (
     <ChakraProvider theme={theme}>
@@ -15,6 +16,7 @@ export const App = () => (
                 <Route path="/signin-oidc" component={SignInOidc} />
                 <Route exact path="/" component={Main} />
             </Switch>
+            <Footer />
         </BrowserRouter>
     </ChakraProvider>
 )

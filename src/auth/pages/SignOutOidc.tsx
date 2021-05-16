@@ -13,7 +13,7 @@ function SignOutOidc()
 
     return (
         <div>
-            Redirecting...
+            Redirigiendo...
         </div>
     )
 }

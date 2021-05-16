@@ -12,7 +12,7 @@ function SignInOidc()
 
     return (
         <div>
-            Redirecting...
+            Redirigiendo...
         </div>
     )
 }

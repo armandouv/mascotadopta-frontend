@@ -1,41 +1,51 @@
 import React from "react";
-import {Box, Button, Flex, Heading, IconButton, Menu, MenuButton, MenuItem, MenuList, chakra} from "@chakra-ui/react";
+import {Button, chakra, Flex, Heading, Stack} from "@chakra-ui/react";
 import MascotHomeIcon from "../util/icons/MascotHomeIcon";
-import {HamburgerIcon} from "@chakra-ui/icons";
+import {signinRedirect} from "../auth/userService";
 
 function Header()
 {
     return (
-        <chakra.header display="flex" justifyContent="center" padding="2.5% 0">
-            <Flex justifyContent="space-between" alignItems="center" width="92%">
-                <Flex>
-                    <MascotHomeIcon h={7} w={7} marginRight="12px"/>
-                    <Heading size="lg">Mascotadopta</Heading>
+        <chakra.header display="flex" justifyContent="center" padding="1.5% 0">
+            <Flex justifyContent="space-between" alignItems="center" width="80%">
+                <Flex alignItems="center">
+                    <MascotHomeIcon h={8} w={8} marginRight="14px" fill="orange.400"/>
+                    <Heading size="lg" color="blue.800">Mascotadopta</Heading>
                 </Flex>
 
-                <Menu>
-                    <MenuButton
-                        as={IconButton}
-                        aria-label="Open menu"
-                        icon={<HamburgerIcon/>}
-                        variant="ghost"
-                    />
-                    <MenuList>
-                        <MenuItem>
-                            <Flex>
-                                <Box>
-                                    Search
-                                </Box>
-                                <Button>Ir</Button>
-                            </Flex>
-                        </MenuItem>
-                        <MenuItem>Download</MenuItem>
-                        <MenuItem>Create a Copy</MenuItem>
-                        <MenuItem>Mark as Draft</MenuItem>
-                        <MenuItem>Delete</MenuItem>
-                        <MenuItem>Attend a Workshop</MenuItem>
-                    </MenuList>
-                </Menu>
+                <Stack direction="row" spacing={4}>
+                    <Button colorScheme="pink" variant="solid" onClick={signinRedirect}>
+                        Inicia sesión
+                    </Button>
+                    <Button colorScheme="blue" variant="outline">
+                        Regístrate
+                    </Button>
+                </Stack>
+
+
+                {/*<Menu>
+                 <MenuButton
+                 as={IconButton}
+                 aria-label="Open menu"
+                 icon={<HamburgerIcon/>}
+                 variant="ghost"
+                 />
+                 <MenuList>
+                 <MenuItem>
+                 <Flex>
+                 <Box>
+                 Search
+                 </Box>
+                 <Button>Ir</Button>
+                 </Flex>
+                 </MenuItem>
+                 <MenuItem>Download</MenuItem>
+                 <MenuItem>Create a Copy</MenuItem>
+                 <MenuItem>Mark as Draft</MenuItem>
+                 <MenuItem>Delete</MenuItem>
+                 <MenuItem>Attend a Workshop</MenuItem>
+                 </MenuList>
+                 </Menu>*/}
 
 
             </Flex>
