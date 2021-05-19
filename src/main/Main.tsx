@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Box} from "@chakra-ui/react";
 import userManager from "../auth/userService";
 import {User} from "oidc-client";
+import PetsInfoContainer from "./pets/PetsInfoContainer";
 
 function Main()
 {
@@ -15,7 +16,7 @@ function Main()
 
     return (
         <Box>
-
+            <PetsInfoContainer/>
         </Box>
     );
 }
