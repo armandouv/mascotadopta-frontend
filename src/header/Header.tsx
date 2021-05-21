@@ -8,9 +8,20 @@ import {User} from "oidc-client";
 function Header()
 {
     const [user, setUser] = useState<User | null>(null);
+
+    // Initial user loading.
     useEffect(() => {
         userManager.getUser().then((fetchedUser) => {
             setUser(fetchedUser);
+        });
+    }, []);
+
+    // Load user when they log in.
+    useEffect(() => {
+        userManager.events.addUserLoaded(() => {
+            userManager.getUser().then((fetchedUser) => {
+                setUser(fetchedUser);
+            });
         });
     }, []);
 
