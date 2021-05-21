@@ -1,20 +1,10 @@
-import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 import {signinRedirectCallback} from "../userService";
+import AuthProgress from "./AuthProgress";
 
 function SignInOidc()
 {
-    const history = useHistory()
-    useEffect(() => {
-        signinRedirectCallback()
-            .then(() => history.push('/'));
-    }, [history])
-
-    return (
-        <div>
-            Redirigiendo...
-        </div>
-    )
+    return <AuthProgress callback={signinRedirectCallback}/>;
 }
 
 export default SignInOidc;

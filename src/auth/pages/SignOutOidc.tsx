@@ -1,21 +1,11 @@
-import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 import {signoutRedirectCallback} from "../userService";
+import AuthProgress from "./AuthProgress";
 
-// TODO: Implement different functionality or merge into single component with signin.
+
 function SignOutOidc()
 {
-    const history = useHistory();
-    useEffect(() => {
-        signoutRedirectCallback()
-            .then(() => history.push('/'));
-    }, [history]);
-
-    return (
-        <div>
-            Redirigiendo...
-        </div>
-    )
+    return <AuthProgress callback={signoutRedirectCallback}/>;
 }
 
 export default SignOutOidc
