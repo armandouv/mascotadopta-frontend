@@ -5,11 +5,12 @@ import {Grid} from "@chakra-ui/react";
 const testPetInfo: PetInfoDto = {
     createdDate: new Date(),
     isActive: false,
-    name: "Moris",
+    name: "Cagoncito",
     zipCode: 55070,
     id: 123434,
-    type: "Perro"
-
+    type: "Perro",
+    imageUrl: "img.png",
+    imageAlt: "Perrito"
 };
 
 function PetsInfoContainer()
