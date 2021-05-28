@@ -1,5 +1,5 @@
 import React from "react";
-import {Badge, Box, Image} from "@chakra-ui/react";
+import {Badge, Box, Heading, Image, LinkBox, LinkOverlay} from "@chakra-ui/react";
 
 export interface PetInfoDto
 {
@@ -16,7 +16,11 @@ export interface PetInfoDto
 function PetInfo(props: PetInfoDto)
 {
     return (
-        <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+        <LinkBox as="article" maxW="sm"
+                 _hover={{transform: "translateY(-2px)", boxShadow: "3px 3px 30px rgb(204, 204, 204)"}}
+                 transition="all 200ms ease-in 50ms"
+                 boxShadow="2px 2px 20px rgb(217, 217, 217)"
+                 borderWidth="1px" borderRadius="lg" overflow="hidden">
             <Image src={props.imageUrl} alt={props.imageAlt}/>
             <Box p="6">
                 <Box d="flex" alignItems="baseline">
@@ -35,15 +39,14 @@ function PetInfo(props: PetInfoDto)
                     </Box>
                 </Box>
 
-                <Box
-                    mt="1"
-                    fontWeight="semibold"
-                    as="h4"
-                    lineHeight="tight"
-                    isTruncated
-                >
-                    Nombre: {props.name}
-                </Box>
+                <Heading mt="1"
+                         size="md"
+                         lineHeight="tight"
+                         isTruncated>
+                    <LinkOverlay href="#">
+                        {props.name}
+                    </LinkOverlay>
+                </Heading>
 
                 <Box>
                     Tipo: {props.type}
@@ -53,7 +56,7 @@ function PetInfo(props: PetInfoDto)
                     Código postal: {props.zipCode}
                 </Box>
             </Box>
-        </Box>
+        </LinkBox>
     );
 }
 

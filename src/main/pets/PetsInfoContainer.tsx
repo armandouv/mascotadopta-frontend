@@ -13,9 +13,11 @@ const testPetInfo: PetInfoDto = {
     imageAlt: "Perrito"
 };
 
+const pets = Array(10).fill(testPetInfo);
+
 function PetsInfoContainer()
 {
-    const [petsInfo, setPetsInfo] = useState<PetInfoDto[]>([testPetInfo]);
+    const [petsInfo, setPetsInfo] = useState<PetInfoDto[]>(pets);
     const petInfoComponents = petsInfo.map(petInfo => {
         return <PetInfo key={petInfo.id} {...petInfo} />
     });
