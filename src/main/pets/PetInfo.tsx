@@ -18,7 +18,8 @@ function PetInfo(props: PetInfoDto)
     return (
         <LinkBox as="article" maxW="sm"
                  _hover={{transform: "translateY(-2px)", boxShadow: "3px 3px 30px rgb(204, 204, 204)"}}
-                 transition="all 200ms ease-in 50ms"
+                 _active={{transition: "all 50ms ease-out", transform: "translateY(-0.5px)"}}
+                 transition="all 200ms ease-in"
                  boxShadow="2px 2px 20px rgb(217, 217, 217)"
                  borderWidth="1px" borderRadius="lg" overflow="hidden">
             <Image src={props.imageUrl} alt={props.imageAlt}/>
