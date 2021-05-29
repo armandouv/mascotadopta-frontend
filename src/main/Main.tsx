@@ -4,7 +4,7 @@ import userManager from "../auth/userService";
 import {User} from "oidc-client";
 import PetsInfoContainer from "./pets/PetsInfoContainer";
 
-// TODO: link header, pagination, responsive, add links
+// TODO: pagination, responsive, add links
 
 function Main()
 {

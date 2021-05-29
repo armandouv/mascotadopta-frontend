@@ -13,7 +13,7 @@ function Footer()
             </Flex>
 
             <Box mt="0.8em" color="gray.600">
-                <chakra.strong>Contacto:</chakra.strong>
+                <chakra.strong>Contacto:&nbsp;</chakra.strong>
                 mascotadopta@gmail.com
             </Box>
         </chakra.footer>
