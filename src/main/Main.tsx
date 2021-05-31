@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import {Box} from "@chakra-ui/react";
 import userManager from "../auth/userService";
 import {User} from "oidc-client";
-import PetsInfoContainer from "./pets/PetsInfoContainer";
+import PetsInfoLoader from "./pets/PetsInfoLoader";
 
-// TODO: pagination, responsive, add links
+// TODO: pagination, responsive, add links in cards and to landing page
 
 function Main()
 {
@@ -18,7 +18,7 @@ function Main()
 
     return (
         <Box display="flex" justifyContent="space-around" padding={["1.3% 0", "1.5% 0", "1.6% 0", "1.2% 0"]}>
-            <PetsInfoContainer/>
+            <PetsInfoLoader/>
         </Box>
     );
 }
