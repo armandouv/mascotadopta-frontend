@@ -11,13 +11,12 @@ export interface PetsInfoContainerProps
 
 function PetsInfoContainer(props: PetsInfoContainerProps)
 {
-    const totalPages = props.initalPetsPage.totalPages;
-
     const [petsInfo, setPetsInfo] = useState<PetInfoDto[]>([]);
-    const [nextPageToLoad, setNextPageToLoad] = useState<number>(totalPages > 1 ? 1 : -1);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [isLastPage, setIsLastPage] = useState(props.initalPetsPage.isLast);
     const [isLoadingNewPage, setIsLoadingNewPage] = useState<boolean>(false);
 
-    const initialPetsInfo = props.initalPetsPage.elements;
+    const initialPetsInfo = props.initalPetsPage.content;
     if (initialPetsInfo.length === 0)
         return (<Box minHeight="40rem" display="flex" alignItems="center">
             <Text fontSize="4xl">Aún no hay ninguna mascota en adopción ):</Text>
@@ -25,9 +24,10 @@ function PetsInfoContainer(props: PetsInfoContainerProps)
 
     const loadNextPage = () => {
         setIsLoadingNewPage(true);
-        loadPetsPage(nextPageToLoad).then(newPetsInfo => {
-            setPetsInfo(newPetsInfo.elements);
-            setNextPageToLoad(prevState => (newPetsInfo.totalPages - 1) > prevState ? prevState + 1 : -1);
+        loadPetsPage(currentPage + 1).then(newPetsInfo => {
+            setPetsInfo(prevPetsInfo => [...prevPetsInfo, ...newPetsInfo.content]);
+            setCurrentPage(prevPage => prevPage + 1);
+            setIsLastPage(newPetsInfo.isLast)
             setIsLoadingNewPage(false);
         });
     };
@@ -42,7 +42,7 @@ function PetsInfoContainer(props: PetsInfoContainerProps)
             <Grid minHeight="40rem" templateColumns="repeat(3, 1fr)" gap={8}>
                 {petsInfoComponents}
             </Grid>
-            {nextPageToLoad !== -1 &&
+            {!isLastPage &&
              <Button mt={["3.5rem"]} isLoading={isLoadingNewPage} colorScheme="blue" variant="outline"
                      onClick={loadNextPage}>
                  Cargar más mascotas

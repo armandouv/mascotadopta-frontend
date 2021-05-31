@@ -36,7 +36,7 @@ function PetInfo(props: PetInfoDto)
                         textTransform="uppercase"
                         ml="2"
                     >
-                        Publicado el {props.createdDate.toLocaleDateString()}
+                        Publicado el {new Date(props.createdDate).toLocaleDateString()}
                     </Box>
                 </Box>
 
