@@ -1,4 +1,4 @@
-import {Box, Spinner} from "@chakra-ui/react";
+import {Flex, Spinner} from "@chakra-ui/react";
 import React, {useEffect} from "react";
 import {useHistory} from "react-router-dom";
 import {SignoutResponse, User} from "oidc-client";
@@ -17,7 +17,8 @@ function AuthProgress(props: AuthProps)
     }, [history, props]);
 
     return (
-        <Box display="flex" justifyContent="space-around" padding={["1.3% 0", "1.5% 0", "1.6% 0", "1.2% 0"]}>
+        <Flex minHeight="40rem" justifyContent="space-around" alignItems="center"
+              padding={["1.3% 0", "1.5% 0", "1.6% 0", "1.2% 0"]}>
             <Spinner
                 thickness="4px"
                 speed="0.65s"
@@ -25,7 +26,7 @@ function AuthProgress(props: AuthProps)
                 color="blue.500"
                 size="xl"
             />
-        </Box>
+        </Flex>
     )
 }
 
